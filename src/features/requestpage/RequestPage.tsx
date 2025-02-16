@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import { Button, Card, Col, Container, Form, Row } from "react-bootstrap";
+import JsonField from "./jsonField";
 
 const RequestPage: React.FC = () => {
-  const [jsonFields, setJsonFields] = useState<
-    { id: number; key: string; value: string }[]
-  >([]);
+  const [jsonFields, setJsonFields] = useState<JsonField[]>([]);
 
   const addJsonField = () => {
     setJsonFields([...jsonFields, { id: Date.now(), key: "", value: "" }]);
@@ -13,8 +12,6 @@ const RequestPage: React.FC = () => {
   const removeJsonField = (id: number) => {
     setJsonFields(jsonFields.filter((field) => field.id !== id));
   };
-
-  console.log(jsonFields);
 
   return (
     <Container className="mt-3">
