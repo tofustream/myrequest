@@ -17,7 +17,7 @@ const RequestPage: React.FC = () => {
   console.log(jsonFields);
 
   return (
-    <Container>
+    <Container className="mt-3">
       <Form>
         <Form.Group as={Row} className="mb-3">
           <Col sm={2}>
@@ -45,11 +45,32 @@ const RequestPage: React.FC = () => {
           </Col>
         </Form.Group>
 
+        <Form.Group as={Row} className="mt-3">
+          <Col sm={{ span: 10, offset: 2 }}>
+            <div className="d-grid gap-2">
+              <Button variant="secondary" onClick={addJsonField}>
+                Add JSON Field
+              </Button>
+            </div>
+          </Col>
+        </Form.Group>
+
+        <Form.Group as={Row} className="mt-3">
+          <Col sm={{ span: 10, offset: 2 }}>
+            <div className="d-grid gap-2">
+              <Button variant="primary" type="submit">
+                Send
+              </Button>
+            </div>
+          </Col>
+        </Form.Group>
+
         {/* JSON Fields (Scrollable) */}
         {jsonFields.length > 0 && (
           <div
+            className="mt-3"
             style={{
-              maxHeight: "300px", // 任意の高さに調整
+              maxHeight: "400px", // 任意の高さに調整
               overflowY: "auto",
               border: "1px solid #ddd", // 視覚的な枠
               padding: "10px",
@@ -106,26 +127,6 @@ const RequestPage: React.FC = () => {
             ))}
           </div>
         )}
-
-        <Form.Group as={Row} className="mt-3">
-          <Col sm={{ span: 10, offset: 2 }}>
-            <div className="d-grid gap-2">
-              <Button variant="secondary" onClick={addJsonField}>
-                Add JSON Field
-              </Button>
-            </div>
-          </Col>
-        </Form.Group>
-
-        <Form.Group as={Row} className="mt-3">
-          <Col sm={{ span: 10, offset: 2 }}>
-            <div className="d-grid gap-2">
-              <Button variant="primary" type="submit">
-                Send
-              </Button>
-            </div>
-          </Col>
-        </Form.Group>
       </Form>
     </Container>
   );
